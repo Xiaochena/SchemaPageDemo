@@ -7,10 +7,10 @@ import AntdDemo from './AntdDemo';
 const Compared: React.FC = () => {
   return (
     <>
-      <Card>
+      <Card title="SchemaFormDemo">
         <SchemaFormDemo />
       </Card>
-      <Card style={{ marginTop: '20px' }}>
+      <Card title="AntdDemo" style={{ marginTop: '20px' }}>
         <AntdDemo />
       </Card>
     </>
