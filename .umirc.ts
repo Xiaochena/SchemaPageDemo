@@ -17,5 +17,10 @@ export default defineConfig({
       name: 'SchemaPageDemo',
       component: '@/pages/SchemaPageDemo',
     },
+    {
+      path: 'compared',
+      name: '对比',
+      component: '@/pages/Compared',
+    },
   ],
 });

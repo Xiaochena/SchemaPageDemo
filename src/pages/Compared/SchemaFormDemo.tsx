@@ -1,0 +1,73 @@
+import React from 'react';
+import { SchemaForm, Submit, FormButtonGroup } from 'schema-page';
+import { Input, Button } from 'antd';
+import { Checkbox } from '@formily/antd-components';
+
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 8 },
+};
+
+const { Password } = Input;
+
+const components = { Input, Checkbox, Password, Button };
+
+const FormSchemaDemo: React.FC = () => {
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
+
+  return (
+    <>
+      <SchemaForm
+        {...layout}
+        initialValues={{ remember: true }}
+        components={components}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        schema={{
+          type: 'object',
+          properties: {
+            Username: {
+              type: 'string',
+              title: 'Username',
+              'x-rules': {
+                required: true,
+                message: 'Please input your username!',
+              },
+              'x-component': 'Input',
+            },
+            Password: {
+              type: 'string',
+              title: 'Password',
+              'x-rules': {
+                required: true,
+                message: 'Please input your username!',
+              },
+              'x-component': 'Password',
+            },
+            remember: {
+              title: ' ',
+              type: 'string',
+              'x-props': { colon: false },
+              'x-component': 'Checkbox',
+              'x-component-props': {
+                children: 'Remember me',
+              },
+            },
+          },
+        }}
+      >
+        <FormButtonGroup offset={8}>
+          <Submit>Submit</Submit>
+        </FormButtonGroup>
+      </SchemaForm>
+    </>
+  );
+};
+
+export default FormSchemaDemo;
