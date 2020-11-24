@@ -1,5 +1,5 @@
 import React from 'react';
-import { SchemaForm, Submit, FormButtonGroup } from 'schema-page';
+import { SchemaForm, Submit, FormButtonGroup, Form } from 'schema-page';
 import { Input, Button } from 'antd';
 import { Checkbox } from '@formily/antd-components';
 
@@ -13,7 +13,7 @@ const { Password } = Input;
 const components = { Input, Checkbox, Password, Button };
 
 const FormSchemaDemo: React.FC = () => {
-  const onFinish = (values: any) => {
+  const onSubmit = (values: any) => {
     console.log('Success:', values);
   };
 
@@ -27,7 +27,7 @@ const FormSchemaDemo: React.FC = () => {
         {...layout}
         initialValues={{ remember: true }}
         components={components}
-        onFinish={onFinish}
+        onSubmit={onSubmit}
         onFinishFailed={onFinishFailed}
         schema={{
           type: 'object',
@@ -63,7 +63,9 @@ const FormSchemaDemo: React.FC = () => {
         }}
       >
         <FormButtonGroup offset={8}>
-          <Submit>Submit</Submit>
+          <Submit type="primary" htmlType="submit">
+            Submit
+          </Submit>
         </FormButtonGroup>
       </SchemaForm>
     </>
