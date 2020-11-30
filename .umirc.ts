@@ -22,5 +22,10 @@ export default defineConfig({
       name: '对比',
       component: '@/pages/Compared',
     },
+    {
+      path: 'Form Schema 联动',
+      name: '联动',
+      component: '@/pages/Form Schema 联动',
+    },
   ],
 });
